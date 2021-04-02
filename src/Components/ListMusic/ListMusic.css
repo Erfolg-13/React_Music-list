@@ -1,0 +1,23 @@
+.list-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.list-container {
+    width: 70%;
+    margin: 0 auto;
+    padding: 5px 10px;
+    font-weight: bold;
+}
+
+.list-container.is-stop {
+    background-color: rgba(128, 128, 128, 0.158);
+}
+
+.list-container.is-play {
+    background-color: rgba(0, 0, 255, 0.123);
+    border: 1px solid blue;
+    color: blue;
+    
+}
