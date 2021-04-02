@@ -22,33 +22,64 @@ function App() {
   ]);
   console.log(list);
 
-  const changedStatusItem = useCallback((track, status) => {
+
+
+  // const changedStatusItem = useCallback((track, status) => {
+  //   if (status === 'stop') {
+  //     changedTracks((prevState) => {
+  //       return prevState.map((todo) => {
+  //         if (todo.track === track) {
+  //            return {
+  //              track: todo.track,
+  //              status: 'play',
+  //           }
+  //         }
+  //        return todo;
+  //       })
+  //     });
+   
+  //   } else if (status === 'play') {
+  //     changedTracks((prevState) => {
+  //       return prevState.map((todo) => {
+  //         if (todo.track === track) {
+  //            return {
+  //             track: todo.track,
+  //             status: 'stop',
+  //           }
+  //         }
+  //        return todo;
+  //       })
+  //     });
+  //   } ;
+  // }, [list]);
+  
+
+  const showNewStatus = useCallback ((track, status) => {
     if (status === 'stop') {
       changedTracks((prevState) => {
         return prevState.map((todo) => {
           if (todo.track === track) {
-             return {
-               track: todo.track,
-               status: 'play',
+            return {
+              track: todo.track,
+              status: 'play',
             }
           }
-         return todo;
+          return todo;
         })
-      });
-   
-    } else if (status === 'play') {
-      changedTracks((prevState) => {
+      })
+    }  else if (status === 'play') {
+      changedTracks ((prevState) => {
         return prevState.map((todo) => {
           if (todo.track === track) {
-             return {
+            return {
               track: todo.track,
               status: 'stop',
             }
           }
-         return todo;
+          return todo;
         })
-      });
-    } ;
+      })
+    }
   }, [list]);
 
   return (
@@ -61,7 +92,7 @@ function App() {
             key = {trackItem.track}
             track = {trackItem.track} 
             status = {trackItem.status}
-            onChange = {changedStatusItem}
+            onChange = {showNewStatus}
         />
         );
        

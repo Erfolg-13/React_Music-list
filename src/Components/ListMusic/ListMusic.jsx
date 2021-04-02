@@ -1,19 +1,27 @@
 
 import './ListMusic.css';
-
-import { useCallback } from 'react';
+import React from 'react';
+import { useCallback, useState } from 'react';
 
 function ListMusic (props) {
+    const [btnplay, btnstop] = useState('play');
+    const changeBtnStatus = useCallback (() => {
+        if (btnplay === 'play') {
+            btnstop('stop')
+        } else if (btnplay === 'stop') {
+            btnstop('play')
+    }
+  }, [btnplay])
 
-    const changeStatus = useCallback (() => {
-        props.onChange(props.status)
-    }, [props.status])
+    // const changeStatus = useCallback (() => {
+    //     button.onChange(props.status)
+    // }, [props.status])
    
    return (
-    <div className= {`list-container is-${props.track}`}>
+    <div className= {`list-container is-${btnplay}`}>
         <div>{props.track}</div>
         <div>{props.status}</div>
-        <button onClick={changeStatus}>Change status</button>
+        <button onClick={changeBtnStatus}>{btnplay}</button>
     </div>
     
    )
