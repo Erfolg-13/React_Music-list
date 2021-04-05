@@ -22,13 +22,20 @@ function ListMusic (props) {
             
         } 
         props.onChange(props.status);
-  }, [btnplay, props]);
+    }, [btnplay, props]);
+
+    const handleDeleteItem = useCallback (() => {
+        props.onDelete(props.id);
+    }, [props]);
+
+  
 
    return (
     <div className= {`list-container is-${btnplay}`}>
         <div>{props.track}</div>
         <div>{status}</div>
         <button className="btnPlayStop" onClick={changeBtnStatus}>{btnplay}</button>
+        <button onClick={handleDeleteItem}>X</button>
     </div>
     
    )
