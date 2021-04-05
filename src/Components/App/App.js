@@ -23,22 +23,24 @@ function App() {
     return (
       Math.random().toString(36).substr(2,9)
     );
-  }, [])
+  }, []);
 
   const addNewItemList = useCallback((track) => {
     changedTracks((prevState) => {
-      const newState = prevState.concat([{ id: generateID(), track}]);
+
+      const newState = prevState.concat([{id: generateID(), track}]);
       return newState;
     });
     changeFormVisibility(false);
   }, []);
 
+
   const deleteItemByID = useCallback((id) => {
     changedTracks((prevState) => {
-      const newState = prevState.filter((trackItem) => {
-        return (trackItem.id !== id);   
-      });
-      return newState;
+      const onDelete = prevState.filter((trackitem) => {
+        return (trackitem.id !== id);
+      }); 
+      return onDelete;
     });
   }, []);
  
@@ -50,6 +52,7 @@ function App() {
         return (
         <ListMusic 
             key={trackItem.track}
+            id={trackItem.id}
             track={trackItem.track} 
             status={trackItem.status}
             onChange={changedTracks}

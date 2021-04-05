@@ -26,7 +26,7 @@ function ListMusic (props) {
 
     const handleDeleteItem = useCallback (() => {
         props.onDelete(props.id);
-}   , [props]);
+    }, [props]);
 
   
 
