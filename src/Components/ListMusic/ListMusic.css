@@ -14,7 +14,7 @@
 
 .list-container.is-stop {
     background-color: whitesmoke;
-    border: 2px solid blue;
+    border: 2px solid grey;
     color: black;
     font-weight: bold;
 }
@@ -24,12 +24,23 @@
     color: honeydew;  
 }
 
-.btnPlayStop {
-    background-color: orangered;
+.btnPlayplay {
+    border: 2px solid orangered;
+    background-color: honeydew;
     width: 50px;
     height: 50px;
     border-radius: 50%;
     font-weight: bold;
+    outline: none;
+}
+
+.btnPlaystop {
     border: 1px solid transparent;
+    background-color: orangered;
+    color:  honeydew;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-weight: bold;
     outline: none;
 }
