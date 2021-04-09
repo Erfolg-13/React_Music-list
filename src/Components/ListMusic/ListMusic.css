@@ -1,7 +1,5 @@
 .list-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    text-align: left;
 }
 
 .list-container {
@@ -24,9 +22,8 @@
     color: honeydew;  
 }
 
-.btnPlayplay {
-    border: 2px solid orangered;
-    background-color: honeydew;
+.firstBtn {
+    margin-right: 50px;
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -34,13 +31,17 @@
     outline: none;
 }
 
+.btnPlayplay {
+    border: 2px solid orangered;
+    background-color: honeydew;
+}
+
 .btnPlaystop {
     border: 1px solid transparent;
     background-color: orangered;
     color:  honeydew;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    font-weight: bold;
-    outline: none;
+}
+
+.list-music-btns .btn {
+    margin-left: 10px;
 }

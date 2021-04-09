@@ -1,6 +1,10 @@
 import ListMusic from '../ListMusic/ListMusic';
 import ListMusicItemForm from '../ListMusicItemForm/ListMusicItemForm';
 import {useState, useCallback} from 'react';
+import Button from 'react-bootstrap/Button';
+import Navbar from 'react-bootstrap/Navbar';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHeadphones } from '@fortawesome/free-solid-svg-icons'
 import './App.css';
 import React from 'react';
 
@@ -37,7 +41,7 @@ function App() {
         return itemTrack;
       });
       return newState
-    });
+    });  
   }, []);
 
 
@@ -97,7 +101,12 @@ function App() {
  
   return (
     <div className="App">
-      <h1>Music list</h1>
+        <Navbar bg="info">
+          <Navbar.Brand href="#home">
+            <h1>
+              <FontAwesomeIcon icon={faHeadphones} />Music list
+            </h1></Navbar.Brand>
+        </Navbar>
 
       {list.map((trackItem) => {
         return (
@@ -114,16 +123,19 @@ function App() {
        
       })}
       <div>
-        <button className="addItemBtn" onClick={createListMusicItem}>
+        <Button variant="outline-primary" size="lg" onClick={createListMusicItem}>
           Add item
-        </button>
-         {formIsVisible ? (<ListMusicItemForm onSave={addNewItemList} />) : null}
+        </Button>
+        <div className="form-section">
+           {formIsVisible ? (<ListMusicItemForm onSave={addNewItemList} />) : null}
          {formForEdit ? (
           <ListMusicItemForm 
             id={formForEdit.id}
             track={formForEdit.track}
             status={formForEdit.status}
             onSave={updateItem} />) : null}
+        </div>
+        
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 import './ListMusicItemForm.css';
 import { useState, useCallback } from 'react';
+import Button from 'react-bootstrap/Button';
 
 function ListMusicItemForm (props) {
     const [track, setTrack] = useState(props.track);
@@ -21,7 +22,7 @@ function ListMusicItemForm (props) {
                     value={track}
                     onChange={(event) => setTrack(event.target.value)} />
             </div>
-            <button className="form-brn-Submit" type="submit">save</button>
+            <Button variant="outline-warning" className="form-brn-Submit" type="submit">save</Button>
             
         </form>
     </div>

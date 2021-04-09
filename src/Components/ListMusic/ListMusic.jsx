@@ -1,6 +1,7 @@
 import './ListMusic.css';
 import React from 'react';
 import { useCallback, useState } from 'react';
+import Button from 'react-bootstrap/Button';
 
 function ListMusic (props) {
 
@@ -27,12 +28,19 @@ function ListMusic (props) {
   
 
    return (
-    <div className= {`list-container is-${btnplay}`}>
-        <div>{props.track}</div>
-        <div>{props.status}</div>
-        <button className={`btnPlay${btnplay}`} onClick={changeBtnStatus}>{btnplay}</button>
-        <button onClick={handleEditItem}>edit</button>
-        <button onClick={handleDeleteItem}>X</button>
+    <div className= {`list-container is-${btnplay} row`}>
+        <div className="col-5">{props.track}</div>
+        <div className="col-2">{props.status}</div>
+        <div className="col-5 list-music-btns">
+            <button className={`firstBtn btnPlay${btnplay}`} onClick={changeBtnStatus}>{btnplay}</button>
+            <Button 
+                variant="outline-dark" onClick={handleEditItem}>
+                    edit
+                </Button>
+            <Button variant="outline-warning" onClick={handleDeleteItem}>X</Button>
+        </div>
+        
+       
     </div>
     
    );

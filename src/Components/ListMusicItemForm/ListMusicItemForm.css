@@ -22,15 +22,13 @@
 
 .form-add-input {
     width: 80%;
-    height: 25px;
+    height: 40px;
     background-color:rgba(211, 211, 211, 0.37);
-    margin-bottom: 20px;   
+    margin-bottom: 20px;  
 }
 
 .form-brn-Submit {
     display: block;
     margin: 0 auto;
-    width: 50px;
-    height: 30px;
     font-weight: bold;
 }
